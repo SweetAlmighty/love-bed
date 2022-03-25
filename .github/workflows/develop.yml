@@ -6,7 +6,12 @@ name: develop
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ develop ]
+    branches:
+      - develop
+  pull-request:
+      - 'bug/**'
+      - 'task/**'
+      - 'feature/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,13 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: nhartland/love-build@v1-beta3
-        #id: love-build
         with:
-          app_name: 'love-bed'
+          app_name: 'love-bed-dev'
           love_version: '11.3'
           source_dir: '.'
       # Upload the resulting artifacts
       - uses: actions/upload-artifact@v1
         with:
           name: built-application
-          path: 'release'
+          path: 'develop'

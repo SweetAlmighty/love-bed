@@ -8,11 +8,6 @@ on:
   push:
     branches:
       - develop
-  pull_request:
-    branches:
-      - 'bug/**'
-      - 'task/**'
-      - 'feature/**'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:

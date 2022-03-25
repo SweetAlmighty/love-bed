@@ -11,7 +11,7 @@ This project is built using [LÖVE](https://love2d.org/), and is a test bed of s
 | Log     | Logging module for Lua.                                                                                             | https://github.com/rxi/log.lua          |
 | Cute    | Minimal Unit Test framework that allows tests to be run in-game and via build automation opened within a LÖVE game. | https://github.com/gtrogers/Cute        |
 | Concord | Feature complete ECS library for LÖVE.                                                                              | https://github.com/Tjakka5/Concord      |
-| LuaDoc  | Documentation generator for Lua projects.                                                                           | https://keplerproject.github.io/luadoc/ |
+| LDoc    | Documentation generator for Lua projects.                                                                           | https://github.com/lunarmodules/LDoc    |
 | ... | ... | ... |
 
 ## GitHub Actions

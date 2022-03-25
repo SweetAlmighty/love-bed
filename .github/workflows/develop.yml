@@ -8,7 +8,8 @@ on:
   push:
     branches:
       - develop
-  pull-request:
+  pull_request:
+    branches:
       - 'bug/**'
       - 'task/**'
       - 'feature/**'

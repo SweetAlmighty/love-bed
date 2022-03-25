@@ -1,5 +1,7 @@
 # love-bed
 
+[![develop](https://github.com/SweetAlmighty/love-bed/actions/workflows/develop.yml/badge.svg)](https://github.com/SweetAlmighty/love-bed/actions/workflows/develop.yml)
+
 ## Intent
 
 This project is built using [LÖVE](https://love2d.org/), and is a test bed of sorts to try out some libraries and development practices that I've had on the back-burner for awhile.

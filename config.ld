@@ -1,3 +1,4 @@
 format='markdown'
-project = 'Basic Example'
+project = 'love-bed'
 use_markdown_titles=true
+file = { '.',  exclude = {'src/libs/'} }

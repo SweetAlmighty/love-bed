@@ -24,7 +24,7 @@ jobs:
         with:
           app_name: 'love-bed'
           love_version: '11.3'
-          #source_dir: '.'
+          source_dir: '.'
       # Upload the resulting artifacts
       - uses: actions/upload-artifact@v1
         with:

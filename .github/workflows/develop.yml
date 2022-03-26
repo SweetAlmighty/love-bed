@@ -14,10 +14,10 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
-      
+      - uses: actions/checkout@v2
+
       - name: Install Love
         run: |
           sudo add-apt-repository ppa:bartbes/love-stable

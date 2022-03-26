@@ -19,8 +19,8 @@ jobs:
       - uses: leafo/gh-actions-luarocks@v4
       - name: Install LDoc
         run: luarocks install ldoc
-      - name: Change Directory
-        run: cd love-bed
+      #- name: Change Directory
+      #  run: cd love-bed
       - name: Run LDoc
         run: ldoc .
 

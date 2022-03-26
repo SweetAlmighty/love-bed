@@ -14,6 +14,7 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
       - name: Install Love
@@ -26,7 +27,6 @@ jobs:
           luarocks install --local ldoc
         # luarocks make
         
-      - uses: actions/checkout@v2
       - name: Run LDoc
         run: ldoc .
 

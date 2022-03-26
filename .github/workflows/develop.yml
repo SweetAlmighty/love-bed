@@ -20,7 +20,7 @@ jobs:
       - name: Tree
         run: |
           sudo apt install tree
-          tree ../
+          tree ../../
       #- name: Install LDoc
       #  run: |
       #    luarocks install --local ldoc

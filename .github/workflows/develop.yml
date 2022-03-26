@@ -14,20 +14,23 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
-      - uses: actions/checkout@v2
-      - name: Install LDoc
+      - name: Tree
         run: |
-          luarocks install --local ldoc
-        # luarocks make
+          sudo apt install tree
+          tree
+      #- name: Install LDoc
+      #  run: |
+      #    luarocks install --local ldoc
 
       #- name: Install Love
       #  run: |
       #    sudo add-apt-repository ppa:bartbes/love-stable
       #    sudo apt-get update
-      - name: Run LDoc
-        run: ldoc .
+      #- name: Run LDoc
+      #  run: ldoc .
 
       #- name: Deploy Docs
       #  uses: peaceiris/actions-gh-pages@v3

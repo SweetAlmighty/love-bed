@@ -14,7 +14,6 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
-      - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
       - name: Install LDoc
         run: |
@@ -27,6 +26,7 @@ jobs:
       #    sudo apt-get update
       
       - uses: actions/checkout@v2
+      - uses: leafo/gh-actions-lua@v9
       - name: Run LDoc
         run: ldoc .
 

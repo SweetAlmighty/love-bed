@@ -22,12 +22,12 @@ jobs:
           sudo apt-get update
 
       - name: Install LDoc
-        run: |
-          luarocks install ldoc
-          luarocks make
+        run: luarocks install ldoc
+
+      - name: Make LDoc
+        run: luarocks make
         
       - uses: actions/checkout@v2
-
       - name: Run LDoc
         run: ldoc .
 

@@ -1,10 +1,6 @@
-# This is a basic workflow to help you get started with Actions
-
 name: develop
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
       - develop
@@ -14,27 +10,19 @@ on:
       - 'task/**'
       - 'feature/**'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   docs:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
       - uses: actions/checkout@v2
-
-      - name: Install Lua
       - uses: leafo/gh-actions-lua@v9
-
-      - name: Install LuaRocks
       - uses: leafo/gh-actions-luarocks@v4
-
       - name: Install LDoc
         run: luarocks install ldoc
-
-      #- name: Generate Docs
-      #  run: cd love-bed
-      #  run: ldoc .
+      - name: Change Directory
+        run: cd love-bed
+      - name: Run LDoc
+        run: ldoc .
 
       #- name: Deploy Docs
       #  uses: peaceiris/actions-gh-pages@v3
@@ -44,19 +32,15 @@ jobs:
       #    publish_dir: ./doc
 
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: nhartland/love-build@v1-beta3
         with:
           app_name: 'love-bed'
           love_version: '11.3'
           source_dir: '.'
-      # Upload the resulting artifacts
       - uses: actions/upload-artifact@v1
         with:
           name: built-application

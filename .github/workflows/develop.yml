@@ -27,7 +27,7 @@ jobs:
       #    sudo add-apt-repository ppa:bartbes/love-stable
       #    sudo apt-get update
       - name: Run LDoc
-        run: ldoc .
+        run: ldoc /home/runner/work/love-bed/love-bed/
 
       #- name: Deploy Docs
       #  uses: peaceiris/actions-gh-pages@v3

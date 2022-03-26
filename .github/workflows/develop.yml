@@ -14,6 +14,8 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+      - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
       - name: Install LDoc
         run: |
@@ -24,9 +26,6 @@ jobs:
       #  run: |
       #    sudo add-apt-repository ppa:bartbes/love-stable
       #    sudo apt-get update
-      
-      - uses: actions/checkout@v2
-      - uses: leafo/gh-actions-lua@v9
       - name: Run LDoc
         run: ldoc .
 
@@ -37,17 +36,17 @@ jobs:
       #    github_token: ${{ secrets.GITHUB_TOKEN }}
       #    publish_dir: ./doc
 
-  build:
-    runs-on: ubuntu-latest
+  #build:
+  #  runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: nhartland/love-build@v1-beta3
-        with:
-          app_name: 'love-bed'
-          love_version: '11.3'
-          source_dir: '.'
-      - uses: actions/upload-artifact@v1
-        with:
-          name: built-application
-          path: 'release'
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - uses: nhartland/love-build@v1-beta3
+  #      with:
+  #        app_name: 'love-bed'
+  #        love_version: '11.3'
+  #        source_dir: '.'
+  #    - uses: actions/upload-artifact@v1
+  #      with:
+  #        name: built-application
+  #        path: 'release'

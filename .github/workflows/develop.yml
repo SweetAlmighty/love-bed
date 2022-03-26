@@ -19,6 +19,7 @@ jobs:
       - uses: leafo/gh-actions-luarocks@v4
       - name: Tree
         run: |
+          luarocks install --local ldoc
           sudo apt install tree
           tree ../../
       #- name: Install LDoc

@@ -21,12 +21,12 @@ jobs:
           luarocks install --local ldoc
         # luarocks make
 
-      #- uses: actions/checkout@v2
       #- name: Install Love
       #  run: |
       #    sudo add-apt-repository ppa:bartbes/love-stable
       #    sudo apt-get update
-
+      
+      - uses: actions/checkout@v2
       - name: Run LDoc
         run: ldoc .
 

@@ -14,11 +14,9 @@ jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
-      - uses: actions/checkout@v2
-        with:
-          clean: false
       - name: Tree
         run: |
           sudo apt install tree

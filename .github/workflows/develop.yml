@@ -17,14 +17,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
-      - name: Tree
+      - name: Install LDoc
         run: |
           luarocks install --local ldoc
           sudo apt install tree
-          tree ../../
-      #- name: Install LDoc
-      #  run: |
-      #    luarocks install --local ldoc
+          tree -d ../
+      - name: Run LDoc
+        run: ldoc .
 
       #- name: Install Love
       #  run: |

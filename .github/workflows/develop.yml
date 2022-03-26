@@ -16,11 +16,11 @@ jobs:
     steps:
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
-      - uses: actions/checkout@v2
       - name: Install LDoc
         run: luarocks install ldoc
       #- name: Change Directory
       #  run: cd love-bed
+      - uses: actions/checkout@v2
       - name: Run LDoc
         run: ldoc .
 

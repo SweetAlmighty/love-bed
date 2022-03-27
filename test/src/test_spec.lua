@@ -1,0 +1,5 @@
+describe('a test', function()
+  it("more test", function()
+    assert.is_nil({})
+  end)
+end)

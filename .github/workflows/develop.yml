@@ -12,7 +12,7 @@ on:
       - 'bug/**'
       - 'task/**'
 
-tests:
+jobs:
   docs:
     runs-on: ubuntu-latest
     steps:

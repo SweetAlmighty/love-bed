@@ -8,17 +8,27 @@ This project is built using [LÖVE](https://love2d.org/), and is a test bed of s
 
 ## Libraries
 
-| Name    | Description                                                                                                         | URL                                     |
-| :---    | :---                                                                                                                |:---                                     |
-| Log     | Logging module for Lua.                                                                                             | https://github.com/rxi/log.lua          |
-| Cute    | Minimal Unit Test framework that allows tests to be run in-game and via build automation opened within a LÖVE game. | https://github.com/gtrogers/Cute        |
-| Concord | Feature complete ECS library for LÖVE.                                                                              | https://github.com/Tjakka5/Concord      |
-| LDoc    | Documentation generator for Lua projects.                                                                           | https://github.com/lunarmodules/LDoc    |
+| Name    | Description                                               | URL                                     |
+| :---    | :---                                                      |:---                                     |
+| Log     | Logging module for Lua.                                   | https://github.com/rxi/log.lua          |
+| Concord | Feature complete ECS library for LÖVE.                    | https://github.com/Tjakka5/Concord      |
+| LDoc    | Documentation generator for Lua projects.                 | https://github.com/lunarmodules/LDoc    |
+| busted  | Unit testing framework with a focus on being easy to use. | https://github.com/Olivine-Labs/busted  |
 | ... | ... | ... |
 
 ## GitHub Actions
 
-This project will attempt to utilize the LÖVE GitHub Action, which can be found here: https://github.com/marketplace/actions/love-build
+### GitHub Pages
+
+https://github.com/marketplace/actions/github-pages-action
+
+Generated code documentation is published to a GitHub Page (located [here]{https://sweetalmighty.github.io/love-bed/}).
+
+### LÖVE
+
+https://github.com/marketplace/actions/love-build
+
+Generates game builds and saves them as build artifacts. 
 
 ## Concepts
 

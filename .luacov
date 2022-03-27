@@ -1,0 +1,6 @@
+exclude = {
+	'/usr/*',
+	'/spec/*'
+}
+deletestats = true
+reportfile = "wiki/coverage.md"

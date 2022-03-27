@@ -3,4 +3,4 @@ ext='markdown'
 format='markdown'
 project = 'love-bed'
 use_markdown_titles=false
-file = { '.',  exclude = {'src/libs/','spec/','.luarocks/','.lua.include.lua'} }
+file = { '.',  exclude = {'src/libs/','spec/','.luarocks/'} }

@@ -41,7 +41,6 @@ jobs:
           app_name: 'love-bed'
           love_version: '11.3'
           source_dir: '.'
-          dependencies: 'dependencies-1-1.rockspec'
       - uses: actions/upload-artifact@v1
         with:
           name: macos-build

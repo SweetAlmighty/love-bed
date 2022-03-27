@@ -2,8 +2,8 @@ name: develop
 
 on:
   push:
-    paths:
-      - 'wiki/**'
+    #paths:
+    #  - 'wiki/**'
     branches:
       - develop
       - 'feature/**'

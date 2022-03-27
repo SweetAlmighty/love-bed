@@ -23,14 +23,14 @@ jobs:
           luarocks install --local busted
           luarocks install --local luacov
           luarocks install --local cluacov
+          
+      - name: Run LDoc
+        run: ldoc .
 
       - name: Run Busted & LuaCov
         run: |
           busted -c .
           luacov
-          
-      - name: Run LDoc
-        run: ldoc .
 
       #- name: Deploy Docs
       #  uses: peaceiris/actions-gh-pages@v3

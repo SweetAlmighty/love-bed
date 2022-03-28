@@ -4,51 +4,72 @@ on:
   push:
     branches:
       - develop
+      - 'feature/**'
   pull_request:
     branches:
       - 'bug/**'
       - 'task/**'
-      - 'feature/**'
 
 jobs:
   docs:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: leafo/gh-actions-lua@v9
       - uses: leafo/gh-actions-luarocks@v4
-      - name: Install Love
+      - name: Install Dependencies
         run: |
-          sudo add-apt-repository ppa:bartbes/love-stable
-          sudo apt-get update
-
-      - name: Install LDoc
-        run: luarocks install ldoc
-
-      - name: Make LDoc
-        run: luarocks make
-        
-      - uses: actions/checkout@v2
+          luarocks install --local ldoc
+          luarocks install --local busted
+          luarocks install --local luacov
+          luarocks install --local cluacov
+          
       - name: Run LDoc
         run: ldoc .
 
+      - name: Run Busted & LuaCov
+        run: |
+          busted -c .
+          luacov
+
       #- name: Deploy Docs
       #  uses: peaceiris/actions-gh-pages@v3
-      #  if: ${{ github.ref == 'refs/heads/develop' }}
+      #  if: ${{ github.ref == 'refs/heads/feature/build-actions' }}
       #  with:
       #    github_token: ${{ secrets.GITHUB_TOKEN }}
       #    publish_dir: ./doc
 
+      - name: Push Wiki Changes
+        uses: Andrew-Chen-Wang/github-wiki-action@v2
+        env:
+          WIKI_DIR: wiki/
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_MAIL: ${{ secrets.EMAIL }}
+          GH_NAME: ${{ github.repository_owner }}
+
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: nhartland/love-build@v1-beta3
+        id: love-build
         with:
           app_name: 'love-bed'
           love_version: '11.3'
           source_dir: '.'
       - uses: actions/upload-artifact@v1
         with:
-          name: built-application
-          path: 'release'
+          name: macos-build
+          path: ${{ steps.love-build.outputs.macos-filename }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: win32-build
+          path: ${{ steps.love-build.outputs.win32-filename }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: win64-build
+          path: ${{ steps.love-build.outputs.win64-filename }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: love-build
+          path: ${{ steps.love-build.outputs.love-filename }}

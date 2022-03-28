@@ -20,9 +20,9 @@ This project is built using [LÖVE](https://love2d.org/), and is a test bed of s
 
 ### GitHub Pages
 
-https://github.com/marketplace/actions/github-pages-action
+https://github.com/marketplace/actions/github-wiki-action
 
-Generated code documentation is published to a GitHub Page (located [here]{https://sweetalmighty.github.io/love-bed/}).
+Generated code documentation is published to the repo's GitHub Wiki (located [here](https://github.com/SweetAlmighty/love-bed/wiki).
 
 ### LÖVE
 

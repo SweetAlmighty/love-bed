@@ -1,32 +1,56 @@
-# This is a basic workflow to help you get started with Actions
+name: main
 
-name: Build-Dev
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
   pull_request:
-    branches: [ develop ]
+    branches:
+      - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  docs:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: leafo/gh-actions-lua@v9
+      - uses: leafo/gh-actions-luarocks@v4
+
+      - name: Install & Run LDoc
+        run: |
+          luarocks install --local ldoc
+          ldoc .
+
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./doc
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
       - uses: nhartland/love-build@v1-beta3
-        #id: love-build
+        id: love-build
         with:
           app_name: 'love-bed'
           love_version: '11.3'
-          #source_dir: '.'
-      # Upload the resulting artifacts
+          source_dir: '.'
       - uses: actions/upload-artifact@v1
         with:
-          name: built-application
-          path: 'release'
+          name: macos-build
+          path: ${{ steps.love-build.outputs.macos-filename }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: win32-build
+          path: ${{ steps.love-build.outputs.win32-filename }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: win64-build
+          path: ${{ steps.love-build.outputs.win64-filename }}
+      - uses: actions/upload-artifact@v1
+        with:
+          name: love-build
+          path: ${{ steps.love-build.outputs.love-filename }}

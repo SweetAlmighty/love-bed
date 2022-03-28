@@ -1,0 +1,33 @@
+name: develop
+
+on:
+  push:
+    branches:
+      - develop
+      - 'bug/**'
+      - 'task/**'
+      - 'feature/**'
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: leafo/gh-actions-lua@v9
+      - uses: leafo/gh-actions-luarocks@v4
+      - name: Install Dependencies
+        run: |
+          luarocks install --local busted
+          luarocks install --local luacov
+          luarocks install --local cluacov
+
+      - name: Run Busted & LuaCov
+        run: |
+          busted -c .
+          luacov
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: wiki/coverage.md

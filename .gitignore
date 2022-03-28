@@ -39,3 +39,9 @@ luac.out
 *.x86_64
 *.hex
 
+# Generated Documentation
+doc/*
+
+# Wiki Changes
+wiki/*
+!wiki/Home.md

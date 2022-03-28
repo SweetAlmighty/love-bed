@@ -1,0 +1,7 @@
+exclude = {
+	'/usr/*',
+	'/spec/*',
+	'/.luarocks/*'
+}
+deletestats = true
+reportfile = "wiki/coverage.md"

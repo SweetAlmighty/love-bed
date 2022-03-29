@@ -1,6 +1,8 @@
 # love-bed
 
-[![develop](https://github.com/SweetAlmighty/love-bed/actions/workflows/develop.yml/badge.svg)](https://github.com/SweetAlmighty/love-bed/actions/workflows/develop.yml)
+[![main](https://github.com/SweetAlmighty/love-bed/actions/workflows/main.yml/badge.svg)](https://github.com/SweetAlmighty/love-bed/actions/workflows/main.yml) [![develop](https://github.com/SweetAlmighty/love-bed/actions/workflows/develop.yml/badge.svg)](https://github.com/SweetAlmighty/love-bed/actions/workflows/develop.yml)
+
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 ## Intent
 

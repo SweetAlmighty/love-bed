@@ -5,7 +5,6 @@ local PlayerControlSystem = Concord.system({
     pool = { "position" }
 })
 
-function PlayerControlSystem:update(dt)
-end
+function PlayerControlSystem:update(dt) end
 
 return PlayerControlSystem

@@ -1,4 +1,4 @@
-require("src/ecs/world")
+local world = require("src/ecs/world")
 local VisualizationSystem = require('src/ecs/systems/visualization_system')
 
 describe('Visualization System', function()
@@ -8,11 +8,7 @@ describe('Visualization System', function()
 		end)
 	end)
 	it('visualize() attempts to draw an entity.', function ()
-		local world = World().new()
 		world:addSystem(VisualizationSystem)
-
 		world:emit('visualize')
-
-		--VisualizationSystem
 	end)
 end)

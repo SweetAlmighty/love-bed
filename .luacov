@@ -1,7 +1,8 @@
 exclude = {
 	'/usr/*',
-	'/spec/*',
-	'/.luarocks/*'
+	'spec/*',
+	'/.luarocks/*',
+	'/libs/*'
 }
 deletestats = true
 reportfile = "wiki/coverage.md"

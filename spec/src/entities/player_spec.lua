@@ -1,0 +1,11 @@
+local Player = require('src/ecs/entities/player')
+
+describe('Player', function()
+	it('can be instantiated safely.', function()
+		assert.has_no_errors(function() Player:new() end)
+	end)
+	it('has a position component.', function ()
+		local player = Player:new()
+		assert.is_true(player:has("position"))
+	end)
+end)

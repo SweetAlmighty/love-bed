@@ -1,5 +1,0 @@
-describe('a test', function()
-  it("more test", function()
-    pending("I should actually have a test here")
-  end)
-end)

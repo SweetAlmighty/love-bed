@@ -1,7 +1,7 @@
 local PositionComponent = require('src/ecs/components/position_component')
 
 describe('Position Component', function()
-	it('can be instantiated.', function()
+	it('can be instantiated safely.', function()
 		assert.has_no_errors(function()
 			PositionComponent:hasName()
 		end)

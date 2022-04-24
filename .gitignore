@@ -41,7 +41,4 @@ luac.out
 
 # Generated Documentation
 doc/*
-
-# Wiki Changes
-wiki/*
-!wiki/Home.md
+coverage.md

@@ -1,17 +1,20 @@
 local World = require('src/ecs/world')
 local Concord = require("libs/concord")
 
-local Player = {}
-Player.__index = Player
+local Entity = {}
+Entity.__index = Entity
 
 --- Constructor for an instance of an entity that can be controlled by a player.
 -- @return A new instance of a player-controlled entity.
-function Player:new(x, y)
-	local p = Concord.entity(World)
-				     :give("position", x, y)
-   	setmetatable(p, self)
+function Entity:new(x, y, size, color)
+	local e = Concord.entity(World)
+	
+	e:give("position", x, y)
+	 :give("drawable", size, color)
+
+   	setmetatable(e, self)
    	self.__index = self
-   	return p
+   	return e
 end
 
-return Player
+return Entity

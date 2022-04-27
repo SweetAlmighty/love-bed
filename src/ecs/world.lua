@@ -1,4 +1,6 @@
 local Concord = require("libs/concord")
+local MoveSystem = require("src/ecs/systems/move_system")
+local DrawableSystem = require("src/ecs/systems/drawable_system")
 
 --- Constructor for an instance of a World.
 -- @param super The super class for an instance of a world.
@@ -14,11 +16,17 @@ local function World(super)
 		local instance = setmetatable({}, world)
 		if instance.ctor then instance:ctor(...) end
 
+		instance:addSystems(
+			MoveSystem,
+			DrawableSystem
+		)
+
 		world._instance = instance
 		return world._instance
 	end
 
 	return world
 end
+
 
 return World().new()

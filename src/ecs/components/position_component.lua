@@ -1,9 +1,9 @@
-local Concord = require("libs/concord")
+local Concord = require("libs.concord.init")
 
 local name = "position"
 
---- Constructor for an instance of an entity that can be controlled by a player.
--- @return A new instance of a player-controlled entity.
+--- Constructor for an instance of a component that provides an entity with a position value.
+-- @return A new instance of a position component.
 local function PositionComponent()
 	local created, component = Concord.components.try(name)
 

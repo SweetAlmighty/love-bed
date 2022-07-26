@@ -1,4 +1,4 @@
-local Concord = require("libs/concord")
+local Concord = require("libs.concord.init")
 
 local name = "drawable"
 

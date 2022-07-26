@@ -1,8 +1,9 @@
-local Concord = require("libs/concord")
+local Concord = require("libs.concord.init")
+local VelocityComponent = require('src/ecs/components/velocity_component')
 local PositionComponent = require('src/ecs/components/position_component')
 
 local MoveSystem = Concord.system({
-    pool = { "position" }
+    pool = { "position", "velocity" }
 })
 
 local elapsed_time = 0
@@ -12,7 +13,7 @@ local elapsed_time = 0
 function MoveSystem:update(dt)
     for _, e in ipairs(self.pool) do
         elapsed_time = elapsed_time + dt
-        e.position.y = 300 + math.cos(math.pi * elapsed_time)
+        e.position.y = e.position.y + math.cos(math.pi * elapsed_time) * e.velocity.x
     end
 end
 

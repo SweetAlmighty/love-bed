@@ -1,4 +1,4 @@
-local Concord = require("libs/concord")
+local Concord = require("libs.concord.init")
 local MoveSystem = require("src/ecs/systems/move_system")
 local DrawableSystem = require("src/ecs/systems/drawable_system")
 
